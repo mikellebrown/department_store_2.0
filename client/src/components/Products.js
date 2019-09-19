@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Card, Button } from 'semantic-ui-react';
-// import { Link, } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import { Container, } from 'semantic-ui-react';
 import axios from 'axios';
  
@@ -34,11 +34,11 @@ class Products extends React.Component {
               {product.description}
             </Card.Description>
           </Card.Content>
-            {/* <Card.Content extra>
-            <Button as={Link} to={`/departments/:department_id/products`} color='black'>
-              Back
+          <Card.Content extra>
+            <Button as={Link} to={`/departments/${this.props.match.params.id}/products/${product.id}`} color='black'>
+              View
             </Button>
-          </Card.Content> */}
+            </Card.Content>
         </Card>
     ))
   };
@@ -46,6 +46,16 @@ class Products extends React.Component {
     return(
       <Container>
         <Header as="h1">Products</Header>
+        <br />
+        <Button 
+        color="black" 
+        as={Link} to={`/departments/${this.props.match.params.id}`}
+       >
+        Back
+      </Button>
+        <Button as={Link} color="black" to={`/departments/${this.props.match.params.id}/products/new`}>
+          New Product
+        </Button> 
         <br />
         <br />
         <Card.Group>

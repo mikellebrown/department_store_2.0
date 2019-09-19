@@ -1,3 +1,4 @@
+Department.destroy_all
 100.times do
 
   d = Department.create(

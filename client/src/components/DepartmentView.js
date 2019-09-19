@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Header, Button } from 'semantic-ui-react';
+import { Segment, Header, Button, } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -41,14 +41,13 @@ class DepartmentView extends React.Component{
       </Segment>
       <br />
       <br />
-      <Button 
-        color="black" 
-        onClick={this.props.history.goBack}
-      >
+      <Button as={Link} to={"/departments"} 
+      color="black"
+      >  
         Back
       </Button>
       <Button as={Link} 
-      to={`/products/${this.props.match.params.id}/edit`} color="black"
+      to={`/departments/${this.props.match.id}/edit`} color="black"
       >
         Edit
       </Button>

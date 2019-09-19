@@ -3,7 +3,6 @@ class Api::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
   
   def index
-    # binding.pry
     render json: @department.products
   end
 
@@ -40,7 +39,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = @department.products.find(params[:id])
   end
 
   def product_params
